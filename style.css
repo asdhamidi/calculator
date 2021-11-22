@@ -1,0 +1,88 @@
+body {
+    margin: 0%;
+    background-color: #ededed;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+body, main, footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; 
+    text-align: center;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    padding: 1rem;
+}
+main {
+    margin-top: 10vh;
+    padding: 0.5rem;
+    width: 350px;
+    height: 70vh;
+    border: 2px solid black;
+    background-color: #aaa;
+    border-radius: 1rem;
+    justify-content: space-around;
+}
+
+.screen {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 90%;
+    height: 5rem;
+    border-radius: 0.25rem;
+    justify-content: space-between;
+    align-items: flex-end;
+    border: 2px solid black;
+}
+
+.screen-current {
+    padding: 1rem;
+    font-size: x-large;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    margin: 0.25rem;
+    background-color: #eee;
+    width: 4rem;
+    height: 1.5rem;
+    padding: 5px;
+    border-radius: 0.25rem;
+    transition: all 200ms ease-in-out;
+    border: 2px solid black;
+}
+
+.button:hover {
+    background-color: #CCC;
+}
+
+#equals {
+    background-color: #CCF;
+}
+#equals:hover {
+    background-color: #00F;
+}
+
+.main-button {
+    width: 40%;
+}
+
+.mb-1 {
+    background-color: #FAA;
+}
+
+.mb-2 {
+    background-color: #AAF;
+}
