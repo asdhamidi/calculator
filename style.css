@@ -5,7 +5,7 @@ body {
 }
 
 
-body, main, footer {
+body, main, footer, header {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -13,13 +13,26 @@ body, main, footer {
     text-align: center;
 }
 
+h1 {
+    margin: 0%;
+}
+
+header {
+    padding: 0.5rem 0;
+    border-bottom: 2px solid blueviolet;
+    background-color: #ccc;
+    width: 100%;
+}
+
 footer {
     position: absolute;
+    flex-direction: row;
     bottom: 0;
     padding: 1rem;
+    padding-bottom: 0%;
 }
 main {
-    margin-top: 10vh;
+    margin-top: 5vh;
     padding: 0.5rem;
     width: 350px;
     height: 70vh;
@@ -34,7 +47,7 @@ main {
     flex-direction: column;
     background-color: white;
     width: 90%;
-    height: 5rem;
+    height: 6rem;
     border-radius: 0.25rem;
     justify-content: space-between;
     align-items: flex-end;
@@ -43,9 +56,13 @@ main {
 
 .screen-current {
     padding: 1rem;
-    font-size: x-large;
+    font-size: 1.75rem;
 }
 
+.screen-past {
+    padding: 0.5rem;
+    font-size: 1rem;
+}
 .buttons {
     display: flex;
     flex-wrap: wrap;
@@ -65,24 +82,60 @@ main {
 }
 
 .button:hover {
-    background-color: #CCC;
+    background-color: #BBB;
 }
 
 #equals {
-    background-color: #CCF;
+    background-color: #99F;
 }
 #equals:hover {
     background-color: #00F;
 }
 
 .main-button {
-    width: 40%;
+    margin: 0.25rem;
+    width: 38%;
+    height: 1.5rem;
+    padding: 5px;
+    border-radius: 0.25rem;
+    transition: all 200ms ease-in-out;
+    border: 2px solid black;
 }
 
 .mb-1 {
-    background-color: #FAA;
+    background-color: #F88;
+}
+
+.mb-1:hover {
+    background-color: #F66;
 }
 
 .mb-2 {
     background-color: #AAF;
+}
+
+.mb-2:hover {
+    background-color: #88F;
+}
+
+svg {
+    transform: scale(0.75);
+    transition: transform .15s cubic-bezier(.17,.67,.29,2.71) 0s;
+}
+
+svg:hover {
+    transform: scale(0.9);
+    filter: invert(41%) sepia(94%) saturate(1636%) hue-rotate(129deg) brightness(92%) contrast(97%);
+}
+
+@media screen and (max-width: 400px) {
+    main {
+        width: 300px;
+        height: 60vh;
+    }
+
+    .button {
+        width: 3.5rem;
+        height: 1.25rem;
+    }
 }
