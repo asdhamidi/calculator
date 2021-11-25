@@ -5,7 +5,7 @@ body {
 }
 
 
-body, main, footer, header {
+body, main, footer{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -17,13 +17,6 @@ h1 {
     margin: 0%;
 }
 
-header {
-    padding: 0.5rem 0;
-    border-bottom: 2px solid blueviolet;
-    background-color: #ccc;
-    width: 100%;
-}
-
 footer {
     position: absolute;
     flex-direction: row;
@@ -32,14 +25,14 @@ footer {
     padding-bottom: 0%;
 }
 main {
-    margin-top: 5vh;
+    margin-top: 2vh;
     padding: 0.5rem;
     width: 350px;
-    height: 70vh;
+    height: 85vh;
     border: 2px solid black;
     background-color: #aaa;
     border-radius: 1rem;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 .screen {
@@ -70,18 +63,19 @@ main {
     align-items: center;
 }
 
-.button {
+button {
     margin: 0.25rem;
     background-color: #eee;
-    width: 4rem;
-    height: 1.5rem;
-    padding: 5px;
+    font-size: 20px;
+    height: 3rem;
+    width: 5rem;
+    padding: 20px;
     border-radius: 0.25rem;
     transition: all 200ms ease-in-out;
     border: 2px solid black;
 }
 
-.button:hover {
+button:hover {
     background-color: #BBB;
 }
 
@@ -94,8 +88,7 @@ main {
 
 .main-button {
     margin: 0.25rem;
-    width: 38%;
-    height: 1.5rem;
+    width: 40%;
     padding: 5px;
     border-radius: 0.25rem;
     transition: all 200ms ease-in-out;
@@ -129,13 +122,17 @@ svg:hover {
 }
 
 @media screen and (max-width: 400px) {
+    body {
+        justify-content: center;
+    }
     main {
-        width: 300px;
-        height: 60vh;
+        margin-top: 10vh;
+        width: 80vw;
+        height: 70vh;
     }
 
     .button {
-        width: 3.5rem;
-        height: 1.25rem;
+        width: 4rem;
+        height: 3rem;
     }
 }

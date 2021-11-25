@@ -61,7 +61,7 @@ buttons.forEach(btn => {
 
 function evaluate()
 {
-    if(eqn.length == 2 && current.length != 0) {
+    if(eqn.length == 2 && current.length != 0 && failsafe()) {
         eqn[2] = parseInt(current);
         scrPast.textContent = `${eqn[0]} ${eqn[1]} ${eqn[2]} = `;
         operate();
@@ -78,7 +78,7 @@ function addOperator(operator)
 {
     // If only the first number has been entered.
     // And then the operator is entered.
-    if(eqn.length == 0)
+    if(eqn.length == 0 && !(isNaN(parseInt(current))))
     {
         eqn[0] = parseInt(current);
         eqn[1] = operator;
@@ -97,7 +97,7 @@ function addOperator(operator)
     // If some number and operator has been inserted.
     // and new operation is to be done on their result.
     // eg: 2 + 2 * => * is the new operator in this case.
-    else if(eqn.length == 2 && current.length != 0)
+    else if(eqn.length == 2 && current.length != 0 && failsafe())
     {
         eqn[2] = parseInt(current);
         operate();
@@ -128,6 +128,7 @@ function display()
     scr.textContent = current;
 }
 
+// Font Size Checking function
 function sizeCheck()
 {
     if(current.length >= 12)
@@ -166,6 +167,22 @@ function deleteNumber()
 
     if(eqn.length == 1)
     eqn[0] = parseInt(current);
+}
+
+// Failsafe function
+// Checks if division by zero is not happening or
+// if operation with nothing (empty input) is not happening.
+function failsafe()
+{
+    if(eqn.length == 2)
+    {
+        if((!isNaN(parseInt(eqn[0])) && isNaN(parseInt(eqn[1]))) 
+            && !(eqn[1] === "/" && current === "0")) 
+        return true;
+    }
+    alert("Don't act smart!");
+    current = "";
+    return false;
 }
 
 //Keyboard Support
