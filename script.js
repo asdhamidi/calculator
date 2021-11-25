@@ -51,10 +51,10 @@ buttons.forEach(btn => {
             evaluate();
         // Number (containing only 1 class i.e. button) Button Press.
         else if(btn.classList.length == 1)
-            appendNumber(btn.id);   
+            appendNumber(btn.textContent);   
         // Operator (containing 2 classes i.e. button & operator) Button Press
         else if(btn.classList.length == 2) 
-            addOperator(btd.id);
+            addOperator(btn.id);
         sizeCheck();
     });
 });
