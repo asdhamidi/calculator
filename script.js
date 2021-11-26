@@ -39,6 +39,7 @@ function operate()
 
     eqn = [];
     eqn.push(result);
+    sizeCheck();
     scr.textContent = result;
     current = result.toString();
 }
@@ -61,8 +62,7 @@ buttons.forEach(btn => {
 
 function evaluate()
 {
-    if(eqn.length == 2 && current.length != 0 && failsafe()) {
-        eqn[2] = parseInt(current);
+    if(eqn.length == 3 && failsafe()) {
         scrPast.textContent = `${eqn[0]} ${eqn[1]} ${eqn[2]} = `;
         operate();
     }
@@ -70,7 +70,17 @@ function evaluate()
 
 function appendNumber(key)
 {
+    console.log("Check");
+    if(current == 0)
+    current = key;
+    else
     current += key;
+    
+    if(eqn.length == 0 || eqn.length == 1)
+    eqn[0] = parseInt(current);
+    else
+    eqn[2] = parseInt(current);
+    
     display();
 }
 
@@ -78,9 +88,8 @@ function addOperator(operator)
 {
     // If only the first number has been entered.
     // And then the operator is entered.
-    if(eqn.length == 0 && !(isNaN(parseInt(current))))
+    if(eqn.length == 1)
     {
-        eqn[0] = parseInt(current);
         eqn[1] = operator;
         scrPast.textContent = `${eqn[0]} ${eqn[1]}`;
         clear();
@@ -99,11 +108,11 @@ function addOperator(operator)
     // eg: 2 + 2 * => * is the new operator in this case.
     else if(eqn.length == 2 && current.length != 0 && failsafe())
     {
-        eqn[2] = parseInt(current);
         operate();
         eqn[1] = operator;
         scrPast.textContent = `${eqn[0]} ${eqn[1]}`;
-        current = "";
+        current = "0";
+        display();
     }
 }
 
@@ -125,6 +134,7 @@ mainButtons.forEach(mb => {
 // Displaying Numbers Function.
 function display()
 {
+    sizeCheck();
     scr.textContent = current;
 }
 
@@ -156,8 +166,8 @@ function deleteNumber()
     // Turning the number to zero if only one digit is present.
     if(current.length == 1 || current == "")
     {
-        current = "";
-        scr.textContent = "0";
+        current = "0";
+        display();
     }
     else
     {
@@ -174,10 +184,10 @@ function deleteNumber()
 // if operation with nothing (empty input) is not happening.
 function failsafe()
 {
-    if(eqn.length == 2)
+    if(eqn.length == 3)
     {
         if((!isNaN(parseInt(eqn[0])) && isNaN(parseInt(eqn[1]))) 
-            && !(eqn[1] === "/" && current === "0")) 
+            && !(eqn[1] === "/" && eqn[2] === 0)) 
         return true;
     }
     alert("Don't act smart!");
